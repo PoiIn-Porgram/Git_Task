@@ -54,6 +54,8 @@
 5. 要点：避免使用开销过大的脚本生命周期,建议使用协程
 6. [参考资料1：实现倒计时的功能](https://blog.csdn.net/qq_42672770/article/details/105603707?utm_medium=distribute.pc_relevant.none-task-blog-title-2&spm=1001.2101.3001.4242)   
 7. [参考资料2：sprite动画总结](https://blog.csdn.net/WangHaoDiablo/article/details/52838583?locationNum=10&fps=1)
+8. [参考资料3：协程总结](https://blog.csdn.net/yangguihao/article/details/105638453)
+9. [参考资料4：获得子物体](https://blog.csdn.net/wangjianxin97/article/details/81704670)
 
 - 棋盘框架
 1. 棋盘框架脚本：chessBoardManager
