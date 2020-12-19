@@ -1,3 +1,33 @@
+Dummy:
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class DummyControl : MonoBehaviour
+{
+    public int passedTime = 5 ;
+    public bool confirm = false;
+    public GameObject canvas;
+    private timeLimitation Canvas;
+    
+    // Start is called before the first frame update
+    void Start()
+    {
+        Canvas = canvas.GetComponent<timeLimitation>();
+    }
+
+    // Update is called once per frame
+    public void Update()
+    {
+        if (confirm == true)
+        {
+            Canvas.timePass(passedTime);
+            confirm = false;
+        }
+    }
+}
+
+TimeLimitation:
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,17 +37,14 @@ using UnityEngine;
 public class timeLimitation : MonoBehaviour
 {
     public int timeRest = 60;
-    public int passedTime = 5 ;
     private int firstPlace, secondPlace;
-    public bool confirm = false;
-
+    
     [Serializable]
     public struct placeHolder
     {
         public GameObject numPlace;
         public GameObject[] placeArray;
     }
-
     public placeHolder[] numberPlace;
 
     public void showTime()
@@ -69,14 +96,6 @@ public class timeLimitation : MonoBehaviour
         }
         showTime();
     }
-
-    // Update is called once per frame
-    public void Update()
-    {
-        if (confirm == true)
-        {
-            timePass(passedTime);
-            confirm = false;
-        }
-    }
 }
+
+
