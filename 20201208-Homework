@@ -1,1 +1,82 @@
-在写了
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Runtime.Serialization;
+using UnityEngine;
+
+public class timeLimitation : MonoBehaviour
+{
+    public int timeRest = 60;
+    public int passedTime = 5 ;
+    private int firstPlace, secondPlace;
+    public bool confirm = false;
+
+    [Serializable]
+    public struct placeHolder
+    {
+        public GameObject numPlace;
+        public GameObject[] placeArray;
+    }
+
+    public placeHolder[] numberPlace;
+
+    public void showTime()
+    {
+        numberPlace[0].placeArray[secondPlace].SetActive(false);
+        numberPlace[1].placeArray[firstPlace].SetActive(false);
+        secondPlace = timeRest / 10;
+        firstPlace = timeRest % 10;
+        numberPlace[0].placeArray[secondPlace].SetActive(true);
+        numberPlace[1].placeArray[firstPlace].SetActive(true);
+    }
+
+    public void timePass(int passedSeconds)
+    {
+        StartCoroutine(cutDownTime(passedSeconds));
+    }
+    new IEnumerator cutDownTime(int passedSeconds)
+    {
+        if(passedSeconds > 0 && timeRest > 1)
+        {
+            timeRest--;
+            passedSeconds--;
+            yield return new WaitForSeconds(1);
+            showTime();
+            StartCoroutine(cutDownTime(passedSeconds));
+        }
+        else if(passedSeconds > 0)
+        {
+            timeRest = 60;
+            passedSeconds--;
+            yield return  new WaitForSeconds(1);
+            showTime();
+            StartCoroutine(cutDownTime(passedSeconds));
+        }
+        yield return null;
+    }
+
+    // Start is called before the first frame update
+    public void Start()
+    {
+        numberPlace[0].placeArray = GameObject.FindGameObjectsWithTag("Num1");
+        numberPlace[1].placeArray = GameObject.FindGameObjectsWithTag("Num2");
+        foreach (placeHolder i in numberPlace)
+        {
+            foreach (GameObject obj in i.placeArray)
+            {
+                obj.SetActive(false);
+            }
+        }
+        showTime();
+    }
+
+    // Update is called once per frame
+    public void Update()
+    {
+        if (confirm == true)
+        {
+            timePass(passedTime);
+            confirm = false;
+        }
+    }
+}
