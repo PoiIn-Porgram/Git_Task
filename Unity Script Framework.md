@@ -59,12 +59,13 @@
 
 - 棋盘框架
 1. 棋盘框架脚本：chessBoardManager
-2. 实现功能：<br/>
-   1. 棋盘主体：start()时生成黑白相间的10*10棋盘（预制体），每一片上挂载脚本cell记录公开变量vector2Int作为相对位置的输出口
-   2. 线索派发器：序列化一个List，命名为clueList，定义结构体，命名为clue，在inspector视窗里提供编辑clue数量，clue位置和clue种类（颜色暂定）的功能
+2. 棋盘系统头物体：chessBoard
+3. 实现功能：<br/>
+   1. 棋盘主体：调用方法build时，生成黑白相间的10*10棋盘（预制体），每一片上挂载脚本cell记录公开变量vector2Int作为相对位置的输出口
+   2. 线索派发器：序列化一个结构体clue的List，命名为clueList，定义结构体，命名为clue，在inspector视窗里提供编辑clue数量，clue位置和clue种类（颜色暂定）的功能
    3. 玩家移动系统
       1. 获取玩家位置，将玩家下一步可以走的cell（十字型）变黄；射线检测，将鼠标所指的cell变蓝
       2. 输入事件检测1：如果玩家点击可行的黄色cell，将玩家角色移动到对应的cell上
       3. 输入事件检测2：玩家通过awds键向对应格子移动
-3. [参考资料1：国际象棋案例](https://blog.csdn.net/kmyhy/article/details/82690409)
-4. [参考资料2：生成国际象棋棋盘](https://blog.csdn.net/qq_43427963/article/details/98474354?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-8.not_use_machine_learn_pai&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-8.not_use_machine_learn_pai)
+4. [参考资料1：国际象棋案例](https://blog.csdn.net/kmyhy/article/details/82690409)
+5. [参考资料2：生成国际象棋棋盘](https://blog.csdn.net/qq_43427963/article/details/98474354?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-8.not_use_machine_learn_pai&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-8.not_use_machine_learn_pai)
