@@ -59,13 +59,19 @@
 
 - 棋盘框架
 1. 棋盘框架脚本：chessBoardManager
-2. 棋盘系统头物体：chessBoard
-3. 实现功能：<br/>
-   1. 棋盘主体：调用方法build时，生成黑白相间的10*10棋盘（预制体），每一片上挂载脚本cell记录公开变量vector2Int作为相对位置的输出口
-   2. 线索派发器：序列化一个结构体clue的List，命名为clueList，定义结构体，命名为clue，在inspector视窗里提供编辑clue数量，clue位置和clue种类（颜色暂定）的功能
-   3. 玩家移动系统
-      1. 获取玩家位置，将玩家下一步可以走的cell（十字型）变黄；射线检测，将鼠标所指的cell变蓝
-      2. 输入事件检测1：如果玩家点击可行的黄色cell，将玩家角色移动到对应的cell上
-      3. 输入事件检测2：玩家通过awds键向对应格子移动
-4. [参考资料1：国际象棋案例](https://blog.csdn.net/kmyhy/article/details/82690409)
-5. [参考资料2：生成国际象棋棋盘](https://blog.csdn.net/qq_43427963/article/details/98474354?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-8.not_use_machine_learn_pai&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-8.not_use_machine_learn_pai)
+    1. 获得棋盘的大小参数
+    2. 动态规划需要渲染的格子
+2. 棋盘对象池脚本：blocksPool
+    1. 储存<vector2Int,gameobject>映射
+    2. 提供外界方法：spawnBlock生成，recycleBlock回收
+    3. 设定基本方法：distributeBlock，实例化指定预制体，并且并入映射统一管理
+3. 线索派发脚本：cluesCompiler
+    1. 序列化了ClueList，提供一个指定位置指定种类的inspector编辑窗口
+    2. 自动在游戏开始时完成线索的分配
+4. 棋盘系统空物体：chessBoard
+5. 实现功能：<br/>
+   1. 棋盘主体：根据chessBoardManager脚本获得的boardScale参数（vector2Int），生成大小的棋盘映射，并将其填充到对象池中
+   2. 根据相机位置，动态规划需要渲染的blocks
+   3. 线索派发器：序列化一个结构体clue的List，命名为clueList，定义结构体，命名为clue，在inspector视窗里提供编辑clue数量，clue位置和clue种类（颜色暂定）的功能
+6. [参考资料1：国际象棋案例](https://blog.csdn.net/kmyhy/article/details/82690409)
+7. [参考资料2：生成国际象棋棋盘](https://blog.csdn.net/qq_43427963/article/details/98474354?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-8.not_use_machine_learn_pai&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-8.not_use_machine_learn_pai)
