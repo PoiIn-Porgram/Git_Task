@@ -11,7 +11,8 @@ public class cluesCompiler : MonoBehaviour
         pink_block = 2,
         red_block = 3,
         yellow_block = 4,
-        blockGrey_yaojun = 5
+        blockGrey_yaojun = 5,
+        block_aha = 6
     }
     [Serializable]
     public struct clue 
