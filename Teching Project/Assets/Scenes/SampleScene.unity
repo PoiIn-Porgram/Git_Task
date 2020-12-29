@@ -1363,6 +1363,7 @@ MonoBehaviour:
   - {fileID: 7797927317059488764, guid: d95fa4e3de5bde441b0e07296e1ea756, type: 3}
   - {fileID: 6698765506868017773, guid: b68d6167304048a42bad0a489085fd4c, type: 3}
   - {fileID: 7378481447922792072, guid: 36cef74d2cef46349b6f505af0582e62, type: 3}
+  - {fileID: 8937110981066222128, guid: 5b3c89ea68c5f0541b58bba7a2eac75d, type: 3}
 --- !u!114 &760691568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1386,6 +1387,8 @@ MonoBehaviour:
     type: 3
   - coordinate: {x: 4, y: 0}
     type: 4
+  - coordinate: {x: 5, y: 0}
+    type: 6
 --- !u!1 &776683965 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100120, guid: 5917c0e93d180a842b61d1ebc62a195c, type: 3}
